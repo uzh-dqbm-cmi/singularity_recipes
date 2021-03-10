@@ -44,6 +44,14 @@ curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Mi
 chmod +x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh -b
 
+whereis python
+whereis python2
+whereis python3
+
+which python
+which python2
+which python3
+
 # Get R Package
 wget ${R_BASE_URI}${R_PACKAGE_NAME}
 tar -xf $R_PACKAGE_NAME
