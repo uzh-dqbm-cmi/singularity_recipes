@@ -26,9 +26,14 @@ apt-get update
 apt-get install $BUILD_SOFTWARE $CONTAINER_SOFTWARE -y
 
 # other dependencies
-wget https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2
-tar xf pcre2-10.36.tar.bz2
-cd pcre2-10.36
+## pcre2
+#wget https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2
+#tar xf pcre2-10.36.tar.bz2
+#cd pcre2-10.36
+# pcre
+wget https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
+tar xf pcre-8.44.tar.bz2
+cd pcre-8.44
 ./configure --prefix=$HOME
 make
 make install
@@ -40,7 +45,7 @@ tar -xf $R_PACKAGE_NAME
 
 # Build R
 cd $R_FOLDER_NAME
-./configure --with-readline=no --with-x=no --disable-java
+./configure --with-readline=no --with-x=no --with-pcre1 --disable-java
 # maybe add also: --with-cairo --with-blas --with-lapack
 make
 make install
