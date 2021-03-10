@@ -25,13 +25,21 @@ export BUILDHOME="/tmp"
 apt-get update
 apt-get install $BUILD_SOFTWARE $CONTAINER_SOFTWARE -y
 
+# other dependencies
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.41.tar.bz2
+tar xf pcre-8.41.tar.bz2
+cd pcre-8.41
+./configure --enable-utf8 --prefix=$HOME
+make
+make install
+
 # Get R Package
 wget ${R_BASE_URI}${R_PACKAGE_NAME}
 tar -xf $R_PACKAGE_NAME
 
 # Build R
 cd $R_FOLDER_NAME
-./configure --with-readline=no --with-x=no --disable-java
+./configure --with-readline=no --with-x=no  --with-cairo --with-blas --with-lapack --disable-java
 make
 make install
 
