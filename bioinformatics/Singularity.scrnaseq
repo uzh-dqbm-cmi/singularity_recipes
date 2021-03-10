@@ -8,7 +8,7 @@ Contains R version 4.0.4 and packages for scRNA-seq analysis
 %post
 
 # Packages needed inside the container.
-export CONTAINER_SOFTWARE="gfortran g++ gcc make cmake libcurl4-gnutls-dev libhdf5-103 libhdf5-cpp-103 libhdf5-dev libhdf5-mpich-dev"
+export CONTAINER_SOFTWARE="gfortran g++ gcc make cmake curl pcre2-utils libhdf5-103 libhdf5-cpp-103 libhdf5-dev libhdf5-mpich-dev"
 
 ## Set build variables.
 # Packages needed only for the build process.
@@ -30,7 +30,8 @@ apt-get install $BUILD_SOFTWARE $CONTAINER_SOFTWARE -y
 #wget https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2
 #tar xf pcre2-10.36.tar.bz2
 #cd pcre2-10.36
-# pcre
+#./configure --disable-unicode --prefix=$HOME
+## pcre1
 wget https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
 tar xf pcre-8.44.tar.bz2
 cd pcre-8.44
@@ -38,6 +39,10 @@ cd pcre-8.44
 make
 make install
 cd
+
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh -b
 
 # Get R Package
 wget ${R_BASE_URI}${R_PACKAGE_NAME}
