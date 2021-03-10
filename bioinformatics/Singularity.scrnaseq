@@ -29,9 +29,10 @@ apt-get install $BUILD_SOFTWARE $CONTAINER_SOFTWARE -y
 wget https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2
 tar xf pcre2-10.36.tar.bz2
 cd pcre2-10.36
-./configure --enable-utf8 --prefix=$HOME
+./configure --prefix=$HOME
 make
 make install
+cd
 
 # Get R Package
 wget ${R_BASE_URI}${R_PACKAGE_NAME}
