@@ -3,7 +3,7 @@ From: debian:stable-slim
 
 %help
 
-Contains R version 4.0.4
+Contains R version 4.0.4 and packages for scRNA-seq analysis
 
 %post
 
