@@ -27,8 +27,8 @@ apt-get install $BUILD_SOFTWARE $CONTAINER_SOFTWARE -y
 
 # other dependencies
 wget https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2
-tar xf pcre-8.41.tar.bz2
-cd pcre-8.41
+tar xf pcre2-10.36.tar.bz2
+cd pcre2-10.36
 ./configure --enable-utf8 --prefix=$HOME
 make
 make install
