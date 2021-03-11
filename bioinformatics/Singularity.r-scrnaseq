@@ -7,11 +7,10 @@ Contains R version 4.0.4 and packages for scRNA-seq analysis
 
 %post
 
-R --version
 Rscript --help
 
 # Install R packages we want
-Rscript --save  bioinformatics/dependencies_scrnaseq.R
+sudo Rscript --save  bioinformatics/dependencies_scrnaseq.R
 
 %test
 
