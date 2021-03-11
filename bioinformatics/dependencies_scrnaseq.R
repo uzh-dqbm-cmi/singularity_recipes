@@ -32,3 +32,4 @@ install_dependencies(packages = c("dplyr", "Seurat", "reshape", "data.table", "r
                                   "scales", "RColorBrewer", "gridExtra", "grid", "gtable", "plotly"))
 
 install_Bioc_dependencies(packages = c("SingleR", "Gviz", "Organism.dplyr", "GenomicRanges", "GenomicFeatures", "affy"))
+# "backports",

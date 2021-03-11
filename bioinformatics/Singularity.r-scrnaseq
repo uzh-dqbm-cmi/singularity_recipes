@@ -14,9 +14,8 @@ Contains R version 4.0.4 and packages for scRNA-seq analysis
 locale-gen en_US.UTF-8
 
 # Install requirements.
-export CONTAINER_SOFTWARE="wget curl libcurl4-gnutls-dev libssl-dev libcurl4-openssl-dev libxml2-dev"
 apt-get update
-apt-get install $CONTAINER_SOFTWARE -y
+apt-get install -y -f libcurl4-openssl-dev libxml2-dev
 
 #R --help
 # Install R packages we want
