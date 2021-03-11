@@ -1,18 +1,30 @@
 Bootstrap: docker
 From: r-base
+#From: bioconductor/bioconductor_full:RELEASE_3_10
 
 %help
 
 Contains R version 4.0.4 and packages for scRNA-seq analysis
 
+%files
+    ./dependencies_scrnaseq.R
+
 %post
 
-R --help
+locale-gen en_US.UTF-8
 
+# Install requirements.
+export CONTAINER_SOFTWARE="wget curl libcurl4-gnutls-dev"
+apt-get update
+apt-get install $CONTAINER_SOFTWARE -y
+
+#R --help
 # Install R packages we want
-R -f bioinformatics/dependencies_scrnaseq.R
+R -f dependencies_scrnaseq.R
 
 %test
 
 # Can we call R?
 R --version
+
+R -f dependencies_scrnaseq.R
