@@ -20,8 +20,11 @@ apt-get install $BUILD_SOFTWARE $CONTAINER_SOFTWARE -y
 
 # Get R Package
 
+R --version
+Rscript --help
+
 # Install R packages we want
-Rscript --save dependencies_scrnaseq.R
+Rscript --save bioinformatics/dependencies_scrnaseq.R
 
 # Removing installation overhead.
 
