@@ -14,35 +14,9 @@ export CONTAINER_SOFTWARE="r-base gfortran g++ gcc make cmake curl pcre2-utils l
 # Packages needed only for the build process.
 export BUILD_SOFTWARE="wget zlib1g-dev libbz2-dev liblzma-dev libpcre3-dev libcurl4-gnutls-dev texlive texlive-fonts-extra texinfo"
 
-# Needed for downloading source.
-export R_BASE_URI="https://cran.r-project.org/src/base/R-4/"
-export R_FOLDER_NAME="R-4.0.4"
-export R_PACKAGE_NAME="${R_FOLDER_NAME}.tar.gz"
-# Set paths to facilitate the build process.
-export BUILDHOME="/tmp"
-
 # Install build and run requirements.
 apt-get update
 apt-get install $BUILD_SOFTWARE $CONTAINER_SOFTWARE -y
-
-# other dependencies
-## pcre2
-#wget https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2
-#tar xf pcre2-10.36.tar.bz2
-#cd pcre2-10.36
-#./configure --disable-unicode --prefix=$HOME
-## pcre1
-wget https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
-tar xf pcre-8.44.tar.bz2
-cd pcre-8.44
-./configure --prefix=$HOME
-make
-make install
-cd
-
-curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Miniconda3-latest-Linux-x86_64.sh
-chmod +x Miniconda3-latest-Linux-x86_64.sh
-./Miniconda3-latest-Linux-x86_64.sh -b
 
 # Get R Package
 
