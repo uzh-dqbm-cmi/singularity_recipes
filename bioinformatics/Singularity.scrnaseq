@@ -8,7 +8,7 @@ Contains R version 4.0.4 and packages for scRNA-seq analysis
 %post
 
 # Packages needed inside the container.
-export CONTAINER_SOFTWARE="gfortran g++ gcc make cmake curl pcre2-utils libhdf5-103 libhdf5-cpp-103 libhdf5-dev libhdf5-mpich-dev"
+export CONTAINER_SOFTWARE="r-base gfortran g++ gcc make cmake curl pcre2-utils libhdf5-103 libhdf5-cpp-103 libhdf5-dev libhdf5-mpich-dev"
 
 ## Set build variables.
 # Packages needed only for the build process.
@@ -44,24 +44,10 @@ curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Mi
 chmod +x Miniconda3-latest-Linux-x86_64.sh
 ./Miniconda3-latest-Linux-x86_64.sh -b
 
-whereis python
-whereis python2
-whereis python3
-
-which python
-which python2
-which python3
-
 # Get R Package
-wget ${R_BASE_URI}${R_PACKAGE_NAME}
-tar -xf $R_PACKAGE_NAME
 
-# Build R
-cd $R_FOLDER_NAME
-./configure --with-readline=no --with-x=no --with-pcre1 --disable-java
-# maybe add also: --with-cairo --with-blas --with-lapack
-make
-make install
+# Install R packages we want
+Rscript --save dependencies_scrnaseq.R
 
 # Removing installation overhead.
 
@@ -76,4 +62,3 @@ rm -rf /var/lib/apt/lists/*
 
 # Can we call R?
 R --version
-Rscript --save dependencies_scrnaseq.R
