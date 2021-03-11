@@ -1,0 +1,16 @@
+Bootstrap: docker
+From: r-base
+
+%help
+
+Contains R version 4.0.4 and packages for scRNA-seq analysis
+
+%post
+
+# Install R packages we want
+Rscript --save dependencies_scrnaseq.R
+
+%test
+
+# Can we call R?
+R --version
