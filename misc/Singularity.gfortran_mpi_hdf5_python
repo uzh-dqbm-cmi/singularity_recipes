@@ -1,0 +1,18 @@
+Bootstrap:docker
+From:togop/gcc_gfortran_mpi_hdf5_python
+
+%help
+
+Contains R version 4.0.4 and packages for scRNA-seq analysis
+
+%post
+
+apt-get install -y gfortran g++ gcc make cmake libcurl4-gnutls-dev pcre2-utils libhdf5-103 libhdf5-cpp-103 libhdf5-dev libhdf5-mpich-dev wget zlib1g-dev libbz2-dev liblzma-dev libpcre3-dev texlive texlive-fonts-extra texinfo
+
+
+%test
+
+CMD gfortran --version
+CMD mpirun --version
+CMD h5cc -showconfig
+CMD conda list
