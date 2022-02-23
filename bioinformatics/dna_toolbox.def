@@ -25,15 +25,14 @@ From: bioconductor/bioconductor_docker:devel
     # take too much time, avoid if not needed
     # conda update -n base -c defaults conda
 
-    conda config --add channels defaults
     conda config --add channels conda-forge
     conda config --add channels bioconda
     conda config --add channels r
     conda update --all
 
-    conda install --file requirements.txt
+    conda install --file bioinformatics/dna_toolbox_requirements.txt
 
-    R -f install_packages.R
+    R -f bioinformatics/dna_toolbox_install_packages.R
 
     mkdir -p /opt/data
     apt-get autoremove -y

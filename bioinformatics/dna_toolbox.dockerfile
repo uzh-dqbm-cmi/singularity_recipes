@@ -19,15 +19,14 @@ RUN export PATH=/opt/miniconda3/bin:$PATH
 # take too much time, avoid if not needed
 RUN /opt/miniconda3/bin/conda update -n base -c defaults conda
 
-RUN /opt/miniconda3/bin/conda config --add channels defaults
 RUN /opt/miniconda3/bin/conda config --add channels conda-forge
 RUN /opt/miniconda3/bin/conda config --add channels bioconda
 RUN /opt/miniconda3/bin/conda config --add channels r
 RUN /opt/miniconda3/bin/conda update --all
 
-RUN /opt/miniconda3/bin/conda install --file bioinformatics/requirements.txt
+RUN /opt/miniconda3/bin/conda install --file bioinformatics/dna_toolbox_requirements.txt
 
-RUN R -f bioinformatics/install_packages.R
+RUN R -f bioinformatics/dna_toolbox_install_packages.R
 
 RUN apt-get autoremove -y
 RUN apt-get clean
