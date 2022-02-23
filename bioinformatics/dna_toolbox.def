@@ -38,7 +38,7 @@ From: bioconductor/bioconductor_docker:devel
     mkdir -p /opt/data
     apt-get autoremove -y
     apt-get clean
-    echo 'export export PATH=$SINGULARITYENV_APPEND_PATH:$PATH' >>$SINGULARITY_ENVIRONMENT
+    echo 'export PATH=$SINGULARITYENV_APPEND_PATH:$PATH' >>$SINGULARITY_ENVIRONMENT
 
 # %runscript
 #

@@ -14,18 +14,26 @@ RUN curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 RUN chmod +x Miniconda3-latest-Linux-x86_64.sh
 RUN ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
 
+RUN export PATH=/opt/miniconda3/bin:$PATH
+
 # take too much time, avoid if not needed
-RUN conda update -n base -c defaults conda
+RUN /opt/miniconda3/bin/conda update -n base -c defaults conda
 
-RUN conda config --add channels defaults
-RUN conda config --add channels conda-forge
-RUN conda config --add channels bioconda
-RUN conda config --add channels r
-RUN conda update --all
+RUN /opt/miniconda3/bin/conda config --add channels defaults
+RUN /opt/miniconda3/bin/conda config --add channels conda-forge
+RUN /opt/miniconda3/bin/conda config --add channels bioconda
+RUN /opt/miniconda3/bin/conda config --add channels r
+RUN /opt/miniconda3/bin/conda update --all
 
-RUN conda install --file bioinformatics/requirements.txt
+RUN /opt/miniconda3/bin/conda install --file bioinformatics/requirements.txt
 
 RUN R -f bioinformatics/install_packages.R
 
 RUN apt-get autoremove -y
 RUN apt-get clean
+
+# check all is there
+CMD conda list
+CMD python --version
+CMD pip --version
+CMD Rscript --version
