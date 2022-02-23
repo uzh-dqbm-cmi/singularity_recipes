@@ -1,0 +1,18 @@
+name: dna_toolbox Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the dna_toolbox's Docker image 
+      run: docker build . --file bioinformatics/dna_toolbox.dockerfile --tag dna_toolbox:$(date +%s)
