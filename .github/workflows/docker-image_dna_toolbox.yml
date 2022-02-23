@@ -16,3 +16,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the dna_toolbox's Docker image 
       run: docker build . --file bioinformatics/dna_toolbox.dockerfile --tag dna_toolbox:$(date +%s)
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD  
+    - name: Docker Push
+      run: docker push ${{secrets.DOCKER_USER}}/dna_toolbox
