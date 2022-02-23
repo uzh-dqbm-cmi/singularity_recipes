@@ -1,0 +1,67 @@
+BootStrap: docker
+From: bioconductor/bioconductor_docker:devel
+
+%environment
+
+     SINGULARITYENV_APPEND_PATH=/:/opt/miniconda3/bin:/opt/miniconda3/condabin:/opt:
+     export SINGULARITYENV_APPEND_PATH
+
+%post
+    apt-get update -y
+    apt-get install -y parallel
+    # apt-get install -y libssl-dev
+    apt-get install -y git
+    # give all files 774 and directories 775 by default
+    umask 000
+
+    apt-get install curl
+    ## 3.9: https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
+    curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Miniconda3-latest-Linux-x86_64.sh
+    chmod +x Miniconda3-latest-Linux-x86_64.sh
+    ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
+
+    PATH=/opt/miniconda3/bin:$PATH
+
+    # take too much time, avoid if not needed
+    # conda update -n base -c defaults conda
+
+    conda config --add channels defaults
+    conda config --add channels conda-forge
+    conda config --add channels bioconda
+    conda config --add channels r
+    conda update --all
+
+    conda install --file requirements.txt
+
+    R -f install_packages.R
+
+    mkdir -p /opt/data
+    apt-get autoremove -y
+    apt-get clean
+    echo 'export export PATH=$SINGULARITYENV_APPEND_PATH:$PATH' >>$SINGULARITY_ENVIRONMENT
+
+# %runscript
+#
+# %startscript
+
+%test
+    # packages integrity tests
+    samtools --version | if  grep -q "Samtools compilation details" ; then echo "samtools install OK"; else echo "ERROR: samtools install failed" && exit 1; fi
+    skewer --help | if  grep -q "USAGE:" ; then echo "skewer install OK"; else echo "ERROR: skewer install failed" && exit 1; fi
+    fastqc --help | if  grep -q "A high throughput sequence QC analysis tool" ; then echo "fastqc install OK"; else echo "ERROR: fastqc install failed" && exit 1; fi
+    multiqc --help | if  grep -q "Usage:" ; then echo "multiqc install OK"; else echo "ERROR: multiqc install failed" && exit 1; fi
+    bedtools --help | if  grep -q "Usage:" ; then echo "bedtools install OK"; else echo "ERROR: bedtools install failed" && exit 1; fi
+    deeptools --help | if  grep -q "usage:" ; then echo "deeptools install OK"; else echo "ERROR: deeptools install failed" && exit 1; fi
+    # bedGraphToBigWig | if  grep -q "usage:" ; then echo "bedGraphToBigWig install OK"; else echo "ERROR: bedGraphToBigWig install failed" && exit 1; fi
+    gatk --help | if  grep -q "Usage" ; then echo "gatk install OK"; else echo "ERROR: gatk install failed" && exit 1; fi
+    bismark --help | if  grep -q "USAGE:" ; then echo "bismark install OK"; else echo "ERROR: bismark install failed" && exit 1; fi
+    bedops --help | if  grep -q "USAGE:" ; then echo "bedops install OK"; else echo "ERROR: bedops install failed" && exit 1; fi
+    bowtie2 --help | if  grep -q "Usage:" ; then echo "bowtie2 install OK"; else echo "ERROR: bowtie2 install failed" && exit 1; fi
+    # bwa mem | if  grep -q "Usage:" ; then echo "bwa install OK"; else echo "ERROR: bwa install failed" && exit 1; fi
+
+%labels
+    Author https://krauthammerlab.ch/
+    Version v0.0.1
+
+%help
+    Tools for performing cf-DNA tasks.
