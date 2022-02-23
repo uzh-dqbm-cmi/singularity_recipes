@@ -24,9 +24,12 @@ RUN /opt/miniconda3/bin/conda config --add channels bioconda
 RUN /opt/miniconda3/bin/conda config --add channels r
 RUN /opt/miniconda3/bin/conda update --all
 
-RUN /opt/miniconda3/bin/conda install --file bioinformatics/dna_toolbox_requirements.txt
+COPY bioinformatics/dna_toolbox_requirements.txt /
+COPY bioinformatics/dna_toolbox_install_packages.R /
 
-RUN R -f bioinformatics/dna_toolbox_install_packages.R
+RUN /opt/miniconda3/bin/conda install --file /dna_toolbox_requirements.txt
+
+RUN R -f /dna_toolbox_install_packages.R
 
 RUN apt-get autoremove -y
 RUN apt-get clean
