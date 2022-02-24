@@ -25,7 +25,7 @@ scipy
 bismark
 bedops          # bedmap, sort-bed
 bowtie2
-#  samblaster  # probably using older samtools
+samblaster  # probably using older samtools
 jupyterlab
 notebook
 matplotlib
