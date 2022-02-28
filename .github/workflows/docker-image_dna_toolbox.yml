@@ -3,6 +3,8 @@ name: dna_toolbox Docker Image CI
 on:
   push:
     branches: [ main ]
+    paths: 
+      - bioinformatics/dna_toolbox.dockerfile
   pull_request:
     branches: [ main ]
 
