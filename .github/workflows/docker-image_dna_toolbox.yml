@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths: 
       - bioinformatics/dna_toolbox.dockerfile
+      - bioinformatics/dna_toolbox_requirements.txt
   pull_request:
     branches: [ main ]
 
