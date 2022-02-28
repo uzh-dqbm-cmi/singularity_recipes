@@ -4,6 +4,7 @@ From: conda/miniconda3
 %post
   apt-get update -y
   apt-get install -y parallel
+  conda update -n base -c defaults conda
   conda config --add channels bioconda
   conda install -y pyega3
 
@@ -12,7 +13,7 @@ From: conda/miniconda3
   exec pyega3 "$@"
 
 %test
-  pyega3 --help | if  grep -q "USAGE:" ; then echo "pyega3 install OK"; else echo "ERROR: pyega3 install failed" && exit 1; fi
+  pyega3 --help | if  grep -q "usage:" ; then echo "pyega3 install OK"; else echo "ERROR: pyega3 install failed" && exit 1; fi
 
 %help
   pyega3 tool: Download from EMBL EBI's EGA (European Genome-phenome Archive)
