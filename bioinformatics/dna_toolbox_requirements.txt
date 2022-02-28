@@ -28,10 +28,9 @@ bowtie2
 samblaster  # probably using older samtools
 matplotlib
 # extra packages
-jupyterlab
-notebook
-seaborn
-pyega3
+#jupyterlab
+#notebook
+#seaborn
 # testing
 pytest
 pytest-flake8
