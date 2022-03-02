@@ -4,6 +4,8 @@ From: conda/miniconda3
 %post
   apt-get update -y
   apt-get install -y parallel
+  apt-get install -y proxychains
+  apt-get install -y curl
   conda update -n base -c defaults conda
   conda config --add channels bioconda
   conda install -y pyega3
