@@ -1,17 +1,29 @@
 BootStrap: docker
 From: conda/miniconda3
 
+%environment
+  SINGULARITYENV_all_proxy=socks5://le-a2-075.leonhard.ethz.ch:8880
+  export SINGULARITYENV_all_proxy
+
+%setup
+
 %post
   apt-get update -y
   apt-get install -y parallel
   apt-get install -y proxychains
+  apt-get install -y connect-proxy
+  apt-get install -y redsocks
   apt-get install -y curl
   conda update -n base -c defaults conda
   conda config --add channels bioconda
   conda install -y pyega3
 
+%files
+  redsocks.conf /etc
+
 %runscript
   echo "Arguments received: $*"
+  # redsocks -c /etc/redsocks.conf
   exec pyega3 "$@"
 
 %test
