@@ -28,7 +28,6 @@ COPY bioinformatics/dna_toolbox_requirements.txt /
 COPY bioinformatics/dna_toolbox_install_packages.R /
 
 RUN /opt/miniconda3/bin/conda install --file /dna_toolbox_requirements.txt
-RUN conda install -c conda-forge -y gtk4
 
 RUN R -f /dna_toolbox_install_packages.R
 
