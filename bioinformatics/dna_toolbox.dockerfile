@@ -28,7 +28,8 @@ COPY bioinformatics/dna_toolbox_requirements.txt /
 COPY bioinformatics/dna_toolbox_install_packages.R /
 
 RUN /opt/miniconda3/bin/conda install --file /dna_toolbox_requirements.txt
-
+RUN /opt/miniconda3/bin/conda install -c conda-forge mamba
+RUN mamba install snakemake -c conda-forge -c bioconda
 RUN R -f /dna_toolbox_install_packages.R
 
 RUN apt-get autoremove -y
