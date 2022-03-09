@@ -16,6 +16,10 @@ From: conda/miniconda3
   apt-get install -y curl
   conda update -n base -c defaults conda
   conda config --add channels bioconda
+  conda config --add channels conda-forge
+  conda install -y python-htsget
+  conda install -y requests
+  conda install -y tqdm
   conda install -y pyega3
 
 %files
