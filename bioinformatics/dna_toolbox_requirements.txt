@@ -26,7 +26,7 @@ bismark
 bedops          # bedmap, sort-bed
 bowtie2
 samblaster  # probably using older samtools
-seqio
+seqiolib
 logomaker
 matplotlib
 # extra packages
