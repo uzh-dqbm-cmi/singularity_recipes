@@ -21,6 +21,7 @@ RUN /opt/miniconda3/bin/conda update -n base -c defaults conda
 
 RUN /opt/miniconda3/bin/conda config --add channels conda-forge
 RUN /opt/miniconda3/bin/conda config --add channels bioconda
+RUN /opt/miniconda3/bin/conda config --add channels anaconda
 RUN /opt/miniconda3/bin/conda config --add channels r
 RUN /opt/miniconda3/bin/conda update --all
 
