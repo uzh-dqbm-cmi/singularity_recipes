@@ -18,6 +18,7 @@ ucsc-fatotwobit
 gatk4
 sortedcontainers
 numpy
+numba
 pysam
 bx-python
 joblib
