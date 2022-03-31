@@ -31,4 +31,4 @@ library(CNAclinic)
 # ichorCNA
 install_github("broadinstitute/ichorCNA")
 
-# TODO install_jypiter_dependencies(packages = c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'uuid', 'digest'))
+# IF_NEEDED: install_jypiter_dependencies(packages = c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'uuid', 'digest'))
