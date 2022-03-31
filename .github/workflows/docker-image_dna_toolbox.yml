@@ -6,6 +6,7 @@ on:
     paths: 
       - bioinformatics/dna_toolbox.dockerfile
       - bioinformatics/dna_toolbox_requirements.txt
+      - bioinformatics/dna_toolbox_install_packages.R
   pull_request:
     branches: [ main ]
 
