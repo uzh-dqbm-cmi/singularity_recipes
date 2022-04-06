@@ -17,7 +17,7 @@ install_jypiter_dependencies <- function (packages) {
 install_dependencies(packages = c("dplyr", "Seurat", "reshape", "data.table", "readr", "hash", "ggplot2","scales",
                                   "RColorBrewer", "gridExtra", "grid", "gtable", "plotly", "gridExtra","optparse",
                                   "CNAclinic", "devtools", "this.path", "shiny", "openssl", "plotmm", "mixtools", "EMCluster",
-                                  "flexmix", "tidyverse", "parallel",  "doParallel", "plyr", "icesTAF"))
+                                  "flexmix", "tidyverse", "icesTAF", "parallel",  "doParallel", "doMC", "doFuture", "plyr"))
 install_Bioc_dependencies(packages = c("org.Hs.eg.db", "TxDb.Hsapiens.UCSC.hg19.knownGene",
                                        "TxDb.Hsapiens.UCSC.hg38.knownGene", "QDNAseq.hg19", "QDNAseq.hg38", "BSgenome.Hsapiens.UCSC.hg38",
                                        "BSgenome.Hsapiens.UCSC.hg19"))
