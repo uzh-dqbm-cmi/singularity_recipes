@@ -32,6 +32,9 @@ From: bioconductor/bioconductor_docker:devel
 
     conda install --file bioinformatics/dna_toolbox_requirements.txt
 
+    # separate environment for LIQUORICE
+    conda create -n LIQUORICE -c bioconda -c conda-forge liquorice ray-core
+
     R -f bioinformatics/dna_toolbox_install_packages.R
 
     mkdir -p /opt/data
