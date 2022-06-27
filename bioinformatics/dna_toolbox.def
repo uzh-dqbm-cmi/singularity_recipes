@@ -63,7 +63,7 @@ From: bioconductor/bioconductor_docker:devel
 
 %labels
     Author https://krauthammerlab.ch/
-    Version v0.0.1
+    Version v0.0.2
 
 %help
     Tools for performing cf-DNA tasks.
