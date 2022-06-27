@@ -4,6 +4,7 @@ on:
   push:
     branches: [ main ]
     paths: 
+      - bioinformatics/dna_toolbox.def
       - bioinformatics/dna_toolbox.dockerfile
       - bioinformatics/dna_toolbox_requirements.txt
       - bioinformatics/dna_toolbox_install_packages.R
