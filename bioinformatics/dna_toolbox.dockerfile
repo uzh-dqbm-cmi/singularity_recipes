@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y
 RUN apt-get install -y parallel
 RUN apt-get install -y git
+# RUN apt-get install -y libxml2-dev
 
 RUN apt-get install curl
     ## 3.9: https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
