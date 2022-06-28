@@ -1,4 +1,5 @@
-FROM bioconductor/bioconductor_docker:latest
+FROM bioconductor/bioconductor_docker:RELEASE_3_15
+# OR :latest
 MAINTAINER Todor Gitchev <todor.gitchev@uzh.ch>
 
 ENV DEBIAN_FRONTEND noninteractive
