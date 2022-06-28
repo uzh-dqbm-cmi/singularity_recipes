@@ -32,7 +32,7 @@ COPY bioinformatics/dna_toolbox_install_packages.R /
 RUN /opt/miniconda3/bin/conda install --file /dna_toolbox_requirements.txt
 RUN /opt/miniconda3/bin/conda install -c conda-forge mamba
 RUN /opt/miniconda3/bin/mamba install snakemake -c conda-forge -c bioconda
-RUN /opt/miniconda3/bin/conda create -n LIQUORICE -c bioconda -c conda-forge liquorice ray
+# RUN /opt/miniconda3/bin/conda create -n LIQUORICE -c bioconda -c conda-forge liquorice ray
 RUN R -f /dna_toolbox_install_packages.R
 
 RUN apt-get autoremove -y

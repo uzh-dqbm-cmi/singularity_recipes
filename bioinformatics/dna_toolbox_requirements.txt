@@ -30,9 +30,9 @@ samblaster  # probably using older samtools
 biopython
 logomaker
 matplotlib
-# moved in separate env:
-# liquorice
-# ray-core
+## TODO try to move in separate env:
+liquorice
+ray
 # extra packages:
 #seaborn
 #jupyterlab
