@@ -11,7 +11,7 @@ RUN apt-get install -y git
 # RUN apt-get install -y libxml2-dev
 
 RUN apt-get install -y curl
- ## 3.9: https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
+## 3.9: https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
 RUN curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o Miniconda3-latest-Linux-x86_64.sh
 RUN chmod +x Miniconda3-latest-Linux-x86_64.sh
 RUN ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
