@@ -1,4 +1,4 @@
-FROM bioconductor/bioconductor_docker:RELEASE_3_15
+FROM bioconductor/bioconductor_docker:RELEASE_3_14
 # OR :latest
 MAINTAINER Todor Gitchev <todor.gitchev@uzh.ch>
 
