@@ -1,7 +1,7 @@
 # Title     : Install R package dependencies
 # Objective : prepare environment to run the R scripts in this project
 
-install_dependencies <- function(packages) for (package in packages) if (!requireNamespace(package, quietly = TRUE)) install.packages(package, quietly = TRUE, dependencies = TRUE) else print(paste("Package", package, " already installed."))
+install_dependencies <- function(packages) for (package in packages) if (!requireNamespace(package, quietly = TRUE)) install.packages(package, quietly = TRUE) else print(paste("Package", package, " already installed."))
 
 if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager", quietly = TRUE)
 install_Bioc_dependencies <- function(packages) for (package in packages) if (!requireNamespace(package, quietly = TRUE)) BiocManager::install(package, quietly = TRUE) else print(paste("Bioconductor package", package, " already installed."))
