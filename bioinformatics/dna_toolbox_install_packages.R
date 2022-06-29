@@ -14,6 +14,8 @@ install_jypiter_dependencies <- function (packages) {
   install_dependencies(packages)
 }
 
+update.packages(ask = FALSE)
+
 install_dependencies(packages = c("dplyr", "Seurat", "reshape", "data.table", "readr", "hash", "ggplot2","scales",
                                   "RColorBrewer", "gridExtra", "grid", "gtable", "plotly", "gridExtra","optparse",
                                   "CNAclinic", "devtools", "this.path", "shiny", "openssl", "plotmm", "mixtools", "EMCluster",
