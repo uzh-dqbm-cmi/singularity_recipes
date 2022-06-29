@@ -27,7 +27,7 @@ install_Bioc_dependencies(packages = c("org.Hs.eg.db", "TxDb.Hsapiens.UCSC.hg19.
 library(devtools)
 devtools::install_github("asntech/QDNAseq.hg38@main")
 
-# CNAclinic; tMAD
+# CNAclinic;  tMAD
 install_github("sdchandra/CNAclinic", build_vignettes = TRUE, dependencies=TRUE)
 library(CNAclinic)
 # ichorCNA
