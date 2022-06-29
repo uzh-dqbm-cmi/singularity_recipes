@@ -15,7 +15,6 @@ install_jypiter_dependencies <- function (packages) {
 }
 
 update.packages(ask = FALSE)
-
 install_dependencies(packages = c("dplyr", "Seurat", "reshape", "data.table", "readr", "hash", "ggplot2","scales",
                                   "RColorBrewer", "gridExtra", "grid", "gtable", "plotly", "gridExtra","optparse",
                                   "CNAclinic", "devtools", "this.path", "shiny", "openssl", "plotmm", "mixtools", "EMCluster",
@@ -27,7 +26,7 @@ install_Bioc_dependencies(packages = c("org.Hs.eg.db", "TxDb.Hsapiens.UCSC.hg19.
 library(devtools)
 devtools::install_github("asntech/QDNAseq.hg38@main")
 
-# CNAclinic;  tMAD
+# CNAclinic; tMAD
 install_github("sdchandra/CNAclinic", build_vignettes = TRUE, dependencies=TRUE)
 library(CNAclinic)
 # ichorCNA
