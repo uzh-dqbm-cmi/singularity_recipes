@@ -26,10 +26,11 @@ install_Bioc_dependencies(packages = c("org.Hs.eg.db", "TxDb.Hsapiens.UCSC.hg19.
 library(devtools)
 devtools::install_github("asntech/QDNAseq.hg38@main")
 
+R.Version()
 # CNAclinic; tMAD
-install_github("sdchandra/CNAclinic", build_vignettes = TRUE, dependencies=TRUE)
+devtools::install_github("sdchandra/CNAclinic", build_vignettes = TRUE, dependencies=TRUE)
 library(CNAclinic)
 # ichorCNA
-install_github("broadinstitute/ichorCNA")
+devtools::install_github("broadinstitute/ichorCNA")
 
 # IF_NEEDED: install_jypiter_dependencies(packages = c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'uuid', 'digest'))
