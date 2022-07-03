@@ -4,7 +4,16 @@
 install_dependencies <- function(packages) for (package in packages) if (!requireNamespace(package, quietly = TRUE)) install.packages(package, quietly = TRUE) else print(paste("Package", package, " already installed."))
 
 if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager", quietly = TRUE)
-install_Bioc_dependencies <- function(packages) for (package in packages) if (!requireNamespace(package, quietly = TRUE)) BiocManager::install(package, quietly = TRUE) else print(paste("Bioconductor package", package, " already installed."))
+
+install_Bioc_dependencies <- function(packages) {
+  for (package in packages) {
+     if (!requireNamespace(package, quietly = TRUE)) {
+       BiocManager::install(package, quietly = TRUE)
+     } else {
+       print(paste("Bioconductor package", package, " already installed."))
+     }
+  }
+}
 
 install_jypiter_dependencies <- function (packages) {
   if (!requireNamespace("IRkernel", quietly = TRUE)){
@@ -14,19 +23,20 @@ install_jypiter_dependencies <- function (packages) {
   install_dependencies(packages)
 }
 
-update.packages(ask = FALSE)
-install_dependencies(packages = c("dplyr", "Seurat", "reshape", "data.table", "readr", "hash", "ggplot2","scales",
-                                  "RColorBrewer", "gridExtra", "grid", "gtable", "plotly", "gridExtra","optparse",
-                                  "CNAclinic", "devtools", "this.path", "shiny", "openssl", "plotmm", "mixtools", "EMCluster",
-                                  "flexmix", "tidyverse", "icesTAF", "parallel",  "doParallel", "doMC", "doFuture", "plyr", "Rdsm"))
+R.Version()
+# update.packages(ask = FALSE)
+
 install_Bioc_dependencies(packages = c("org.Hs.eg.db", "TxDb.Hsapiens.UCSC.hg19.knownGene",
                                        "TxDb.Hsapiens.UCSC.hg38.knownGene", "QDNAseq.hg19", "QDNAseq.hg38", "BSgenome.Hsapiens.UCSC.hg38",
                                        "BSgenome.Hsapiens.UCSC.hg19"))
 
+install_dependencies(packages = c("dplyr", "Seurat", "reshape", "data.table", "readr", "hash", "ggplot2","scales",
+                                  "RColorBrewer", "gridExtra", "grid", "gtable", "plotly", "gridExtra","optparse",
+                                  "CNAclinic", "devtools", "this.path", "shiny", "openssl", "plotmm", "mixtools", "EMCluster",
+                                  "flexmix", "tidyverse", "icesTAF", "parallel",  "doParallel", "doMC", "doFuture", "plyr", "Rdsm"))
 library(devtools)
 devtools::install_github("asntech/QDNAseq.hg38@main")
 
-R.Version()
 # CNAclinic; tMAD
 devtools::install_github("sdchandra/CNAclinic", build_vignettes = TRUE, dependencies=TRUE)
 library(CNAclinic)
