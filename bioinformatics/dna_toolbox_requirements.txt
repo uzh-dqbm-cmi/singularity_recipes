@@ -2,7 +2,7 @@ pandas
 # snakemake
 pyaml          # YAML 1.1
 # ruamel.yaml  # YAML 1.2
-ncurses  # required by samtools but somehow missed to install
+conda-forge::ncurses  # required by samtools but somehow missed to install
 samtools>=1.9
 openssl
 skewer
