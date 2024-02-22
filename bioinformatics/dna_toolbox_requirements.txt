@@ -7,6 +7,7 @@ samtools>=1.9
 openssl
 skewer
 bwa
+bwa-mem2
 fastqc
 multiqc
 bedtools
