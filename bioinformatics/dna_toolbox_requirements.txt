@@ -3,34 +3,34 @@ pandas
 pyaml          # YAML 1.1
 # ruamel.yaml  # YAML 1.2
 conda-forge::ncurses  # required by samtools but somehow missed to install
-samtools>=1.9
+bioconda::samtools>=1.9
 openssl
-skewer
-bwa
-bwa-mem2
-fastqc
-multiqc
-bedtools
-novoalign
-deeptools
-pyranges
-pybigwig
-ucsc-bedgraphtobigwig
-ucsc-fatotwobit
-gatk4
+bioconda::skewer
+bioconda::bwa
+bioconda::bwa-mem2
+bioconda::fastqc
+bioconda::multiqc
+bioconda::bedtools
+bioconda::novoalign
+bioconda::deeptools
+bioconda::pyranges
+bioconda::pybigwig
+bioconda::ucsc-bedgraphtobigwig
+bioconda::ucsc-fatotwobit
+bioconda::gatk4
 sortedcontainers
 numpy
 numba
 pysam
-bx-python
+bioconda::bx-python
 joblib
 scipy
-bismark
-bedops          # bedmap, sort-bed
-bowtie2
-samblaster  # probably using older samtools
+bioconda::bismark
+bioconda::bedops          # bedmap, sort-bed
+bioconda::bowtie2
+bioconda::samblaster  # probably using older samtools
 biopython
-logomaker
+bioconda::logomaker
 matplotlib
 ## try to move in separate env:
 #liquorice
