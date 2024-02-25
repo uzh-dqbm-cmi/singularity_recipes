@@ -16,7 +16,7 @@ RUN apt-get install -y curl
 #RUN chmod +x Miniconda3-latest-Linux-x86_64.sh
 #RUN ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
 ## start with mamba
-RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh"
+RUN curl "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh" -o Mambaforge-Linux-x86_64.sh
 RUN chmod +x Mambaforge-Linux-x86_64.sh
 RUN ./Mambaforge-Linux-x86_64.sh -p /opt/mambaforge
 
