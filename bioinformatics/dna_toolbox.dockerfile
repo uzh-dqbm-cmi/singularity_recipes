@@ -19,7 +19,7 @@ RUN apt-get install -y curl
 RUN curl -L "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh" -o Miniforge3-Linux-x86_64.sh
 RUN chmod +x ./Miniforge3-Linux-x86_64.sh
 SHELL ["/bin/bash", "-c"]
-RUN ./Miniforge3-Linux-x86_64.sh -p /opt/miniforge3
+RUN ./Miniforge3-Linux-x86_64.sh -b -p /opt/miniforge3
 
 RUN export PATH=/opt/miniforge3/bin:$PATH
 
