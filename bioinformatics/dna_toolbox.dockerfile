@@ -26,11 +26,12 @@ RUN export PATH=/opt/miniforge3/bin:$PATH
 # take too much time, avoid if not needed
 # RUN /opt/miniforge3/bin/mamba update -n base -c defaults mamba
 
+# only for conda
 #RUN /opt/miniconda3/bin/conda config --add channels conda-forge
 #RUN /opt/miniconda3/bin/conda config --add channels bioconda
 #RUN /opt/miniconda3/bin/conda config --add channels anaconda
 #RUN /opt/miniconda3/bin/conda config --add channels r
-RUN /opt/mambaforge/bin/mamba update --all
+#RUN /opt/miniconda3/bin/conda update --all
 
 COPY bioinformatics/dna_toolbox_requirements.txt /
 COPY bioinformatics/dna_toolbox_install_packages.R /
