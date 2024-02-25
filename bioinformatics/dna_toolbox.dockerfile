@@ -17,9 +17,11 @@ RUN apt-get install -y curl
 #RUN ./Miniconda3-latest-Linux-x86_64.sh -b -p /opt/miniconda3
 ## start with mamba
 RUN chsh -s /bin/bash
+RUN source ~/.bashrc
 RUN curl -L "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh" -o Miniforge3-Linux-x86_64.sh
 RUN chmod +x ./Miniforge3-Linux-x86_64.sh
-RUN bash ./Miniforge3-Linux-x86_64.sh -p /opt/miniforge3
+SHELL ["/bin/bash", "-c"]
+RUN ./Miniforge3-Linux-x86_64.sh -p /opt/miniforge3
 
 RUN export PATH=/opt/miniforge3/bin:$PATH
 
