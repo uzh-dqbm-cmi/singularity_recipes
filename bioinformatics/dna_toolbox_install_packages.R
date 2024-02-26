@@ -38,7 +38,10 @@ library(devtools)
 devtools::install_github("asntech/QDNAseq.hg38@main")
 
 # CNAclinic; tMAD
+source("https://bioconductor.org/biocLite.R")
+BiocInstaller::biocLite("copynumber")
 devtools::install_github("sdchandra/CNAclinic", build_vignettes = TRUE, dependencies=TRUE)
+
 library(CNAclinic)
 # ichorCNA
 devtools::install_github("broadinstitute/ichorCNA")
