@@ -28,7 +28,7 @@ R.Version()
 
 install_Bioc_dependencies(packages = c("org.Hs.eg.db", "TxDb.Hsapiens.UCSC.hg19.knownGene",
                                        "TxDb.Hsapiens.UCSC.hg38.knownGene", "QDNAseq.hg19", "QDNAseq.hg38", "BSgenome.Hsapiens.UCSC.hg38",
-                                       "BSgenome.Hsapiens.UCSC.hg19"))
+                                       "BSgenome.Hsapiens.UCSC.hg19", "copynumber"))
 
 install_dependencies(packages = c("dplyr", "Seurat", "reshape", "data.table", "readr", "hash", "ggplot2","scales",
                                   "RColorBrewer", "gridExtra", "grid", "gtable", "plotly", "gridExtra","optparse",
