@@ -1,0 +1,31 @@
+name: dna_toolbox Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+    paths: 
+      - bioinformatics/dna_toolbox.dockerfile
+      - bioinformatics/dna_toolbox_requirements.txt
+      - bioinformatics/dna_toolbox_install_packages.R
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD  
+    - name: Build the dna_toolbox's Docker image 
+      run: docker build --file bioinformatics/dna_toolbox.dockerfile -t ${{secrets.DOCKER_USER}}/dna_toolbox:$(date +'%Y-%m-%d') -t ${{secrets.DOCKER_USER}}/dna_toolbox:latest .
+      # $(date +%s)
+    - name: Docker Push
+      run: docker push -a ${{secrets.DOCKER_USER}}/dna_toolbox

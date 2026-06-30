@@ -1,0 +1,46 @@
+pandas
+# snakemake
+pyaml          # YAML 1.1
+# ruamel.yaml  # YAML 1.2
+conda-forge::ncurses  # required by samtools but somehow missed to install
+bioconda::samtools>=1.9
+openssl
+bioconda::skewer
+bioconda::bwa
+bioconda::bwa-mem2
+bioconda::fastqc
+bioconda::multiqc
+bioconda::bedtools
+bioconda::novoalign
+bioconda::deeptools
+bioconda::pyranges
+bioconda::pybigwig
+bioconda::ucsc-bedgraphtobigwig
+bioconda::ucsc-fatotwobit
+bioconda::gatk4
+sortedcontainers
+numpy
+numba
+pysam
+bioconda::bx-python
+joblib
+scipy
+bioconda::bismark
+bioconda::bedops          # bedmap, sort-bed
+bioconda::bowtie2
+bioconda::samblaster  # probably using older samtools
+biopython
+bioconda::logomaker
+matplotlib
+## try to move in separate env:
+#liquorice
+#ray
+# extra packages:
+#seaborn
+#jupyterlab
+#notebook
+# testing
+pytest
+pytest-flake8
+pytest-cov
+pytest-order
