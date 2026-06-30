@@ -1,12 +1,12 @@
-name: dna_toolbox Docker Image CI
+name: cfdna_mk Docker Image CI
 
 on:
   push:
     branches: [ main ]
     paths: 
-      - bioinformatics/dna_toolbox.dockerfile
-      - bioinformatics/dna_toolbox_requirements.txt
-      - bioinformatics/dna_toolbox_install_packages.R
+      - bioinformatics/cfdna_mk.dockerfile
+      - bioinformatics/cfdna_mk_requirements.txt
+      - bioinformatics/cfdna_mk_install_packages.R
   pull_request:
     branches: [ main ]
 
@@ -24,8 +24,8 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD  
-    - name: Build the dna_toolbox's Docker image 
-      run: docker build --file bioinformatics/dna_toolbox.dockerfile -t ${{secrets.DOCKER_USER}}/dna_toolbox:$(date +'%Y-%m-%d') -t ${{secrets.DOCKER_USER}}/dna_toolbox:latest .
+    - name: Build the cfdna_mk's Docker image
+      run: docker build --file bioinformatics/cfdna_mk.dockerfile -t ${{secrets.DOCKER_USER}}/cfdna_mk:$(date +'%Y-%m-%d') -t ${{secrets.DOCKER_USER}}/cfdna_mk:latest .
       # $(date +%s)
     - name: Docker Push
-      run: docker push -a ${{secrets.DOCKER_USER}}/dna_toolbox
+      run: docker push -a ${{secrets.DOCKER_USER}}/cfdna_mk
