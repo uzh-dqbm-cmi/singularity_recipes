@@ -30,14 +30,12 @@ R.Version()
 #                                       "TxDb.Hsapiens.UCSC.hg38.knownGene", "QDNAseq.hg19", "QDNAseq.hg38", "BSgenome.Hsapiens.UCSC.hg38",
 #                                       "BSgenome.Hsapiens.UCSC.hg19"))
 
-install_dependencies(packages = c("ggplot2", "optparse", "this.path", "devtools"))
+install_dependencies(packages = c("ggplot2", "optparse", "this.path", "remotes"))
 
 install_Bioc_dependencies(packages = c("HMMcopy", "GenomeInfoDb", "GenomicRanges"))
 
-library(devtools)
+remotes::install_github("sdchandra/CNAclinic", build_vignettes = FALSE, dependencies = TRUE)
 
-devtools::install_github("sdchandra/CNAclinic", build_vignettes = FALSE, dependencies = TRUE)
-
-devtools::install_github("broadinstitute/ichorCNA")
+remotes::install_github("broadinstitute/ichorCNA")
 
 # IF_NEEDED: install_jypiter_dependencies(packages = c('repr', 'IRdisplay', 'evaluate', 'crayon', 'pbdZMQ', 'uuid', 'digest'))
