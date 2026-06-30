@@ -15,7 +15,7 @@ scipy
 biopython
 matplotlib
 scikit-learn
-pytorch::pytorch
+# pytorch::pytorch
 pytest
 pytest-flake8
 pytest-cov
