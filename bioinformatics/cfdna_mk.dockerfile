@@ -1,8 +1,8 @@
 FROM bioconductor/bioconductor_docker:RELEASE_3_23
 # OR :previous, RELEASE_3_16
-MAINTAINER Todor Gitchev <todor.gitchev@uzh.ch>
+LABEL maintainer="Todor Gitchev <todor.gitchev@uzh.ch>"
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # install all
 RUN apt-get update -y
@@ -21,7 +21,7 @@ RUN chmod +x ./Miniforge3-Linux-x86_64.sh
 SHELL ["/bin/bash", "-c"]
 RUN ./Miniforge3-Linux-x86_64.sh -b -p /opt/miniforge3
 
-RUN export PATH=/opt/miniforge3/bin:$PATH
+ENV PATH="/opt/miniforge3/bin:${PATH}"
 
 # take too much time, avoid if not needed
 # RUN /opt/miniforge3/bin/mamba update -n base -c defaults mamba
@@ -43,8 +43,5 @@ RUN R -f /cfdna_mk_install_packages.R
 RUN apt-get autoremove -y
 RUN apt-get clean
 
-# check all is there
-CMD mamba list
-CMD python --version
-CMD pip --version
-CMD Rscript --version
+RUN mamba list && python --version && pip --version && Rscript --version \
+    && Rscript -e 'stopifnot(requireNamespace("ichorCNA", quietly=TRUE), requireNamespace("CNAclinic", quietly=TRUE))'
