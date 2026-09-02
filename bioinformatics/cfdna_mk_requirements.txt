@@ -12,7 +12,7 @@ bioconda::bedops          # bedmap, sort-bed
 numpy
 numba
 pysam
-bioconda::pyBigWig
+bioconda::pybigwig
 scipy
 biopython
 matplotlib
