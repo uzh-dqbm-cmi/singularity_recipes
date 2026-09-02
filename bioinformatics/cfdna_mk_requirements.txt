@@ -9,10 +9,10 @@ bioconda::samtools>=1.9
 #bioconda::bedtools
 #bioconda::deeptools
 bioconda::bedops          # bedmap, sort-bed
+bioconda::pybigwig
 numpy
 numba
 pysam
-bioconda::pybigwig
 scipy
 biopython
 matplotlib
