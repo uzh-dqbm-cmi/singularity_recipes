@@ -1,16 +1,18 @@
+argparse
 pandas
-# snakemake
+snakemake
 pyaml          # YAML 1.1
 # ruamel.yaml  # YAML 1.2
 # conda-forge::ncurses  # required by samtools but somehow missed to install
 bioconda::samtools>=1.9
 #openssl
-bioconda::bedtools
-bioconda::deeptools
+#bioconda::bedtools
+#bioconda::deeptools
 bioconda::bedops          # bedmap, sort-bed
 numpy
 numba
 pysam
+bioconda::pyBigWig
 scipy
 biopython
 matplotlib
