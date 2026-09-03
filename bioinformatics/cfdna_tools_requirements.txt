@@ -1,9 +1,11 @@
 # Python deps for Griffin: https://github.com/adoebley/Griffin
 # pandas 2 removed DataFrame.append(), which Griffin still uses
 # numpy 2 is not supported by pandas 1.5
-bioconda::samtools>=1.9
-pandas #>=1.5,<2
-numpy #>=1.24,<2
+samtools>=1.9
+pandas
+#>=1.5,<2
+numpy
+#>=1.24,<2
 scipy
 pysam
 pyBigWig
