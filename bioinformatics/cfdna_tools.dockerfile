@@ -10,18 +10,25 @@ ENV DEBIAN_FRONTEND=noninteractive \
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 COPY bioinformatics/cfdna_tools_requirements.txt /
 
-# build-essential is only needed to compile datrie (snakemake 7); purge it in this layer
+# TFP (02_fcc_count.sh) needs gawk specifically — mawk's srand is not
+# deterministic across processes. bookworm samtools is 1.16.1 (TFP pins
+# 1.22.1; both use only faidx/view/index). torch is installed from the
+# CPU wheel index so the image does not pull CUDA.
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
-        bedtools \
-        build-essential \
         fonts-dejavu-core \
+        gawk \
         libcurl4 \
         libgomp1 \
+        parallel \
+        samtools \
     && uv pip install --system --no-cache -r /cfdna_tools_requirements.txt \
-    && apt-get purge -y --auto-remove build-essential \
+    && uv pip install --system --no-cache --index-url https://download.pytorch.org/whl/cpu torch \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 RUN uv pip list && python --version \
-    && python -c "import argparse, pysam, pyBigWig, pybedtools, pandas, numpy, scipy, yaml, matplotlib, snakemake; assert pandas.__version__.startswith('1.')"
+    && python -c "import numpy, pandas, scipy, pysam, yaml, matplotlib, sklearn, joblib, torch; assert sklearn.__version__ == '1.2.2'; assert numpy.__version__.startswith('1.26')" \
+    && samtools --version \
+    && command -v gawk \
+    && command -v parallel

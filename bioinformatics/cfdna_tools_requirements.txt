@@ -1,18 +1,18 @@
-# Python deps for Griffin: https://github.com/adoebley/Griffin
-# pandas 2 removed DataFrame.append(), which Griffin still uses
-# numpy 2 is not supported by pandas 1.5
-samtools>=1.9
-pandas
-#>=1.5,<2
-numpy
-#>=1.24,<2
-scipy
-pysam
-pyBigWig
-pybedtools
-pyyaml
-matplotlib
-gawk
-parallel
-# Snakemake 8 changed the CLI/API; Griffin snakefiles target 5.x/6.x
-snakemake>=7,<8
+# Shared Python env for:
+#   https://github.com/irenedonofrio/cfdna_tfp_profiling  (env/environment.yml)
+#   https://github.com/skandlab/FRAGLE                     (README + predict.py)
+#
+# samtools, gawk, and parallel are apt packages (see dockerfile).
+#
+# FRAGLE's select_model.pkl is a sklearn 1.2.2 joblib pickle. That wheel is
+# built against NumPy 1.x and will not import on NumPy 2, so numpy stays 1.26
+# instead of TFP's validated 2.3.4. TFP scripts only use stable APIs
+# (cumsum, default_rng, fft, savgol_filter, zscore, pandas I/O).
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.16.2
+pysam==0.23.3
+pyyaml==6.0.3
+matplotlib==3.10.7
+scikit-learn==1.2.2
+joblib>=1.1.1
