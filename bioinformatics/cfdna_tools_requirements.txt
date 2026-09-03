@@ -1,13 +1,16 @@
 # Python deps for Griffin: https://github.com/adoebley/Griffin
 # pandas 2 removed DataFrame.append(), which Griffin still uses
 # numpy 2 is not supported by pandas 1.5
-pandas>=1.5,<2
-numpy>=1.24,<2
+bioconda::samtools>=1.9
+pandas #>=1.5,<2
+numpy #>=1.24,<2
 scipy
 pysam
 pyBigWig
 pybedtools
 pyyaml
 matplotlib
+gawk
+parallel
 # Snakemake 8 changed the CLI/API; Griffin snakefiles target 5.x/6.x
 snakemake>=7,<8
