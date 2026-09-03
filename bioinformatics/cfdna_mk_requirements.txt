@@ -1,4 +1,5 @@
-argparse
+# argparse is in the Python stdlib; the conda package only supports Python <=3.6
+python=3.12   # Miniforge latest pins 3.14, which bioconda does not support yet
 pandas
 snakemake
 pyaml          # YAML 1.1
